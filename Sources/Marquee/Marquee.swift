@@ -67,6 +67,9 @@ public struct Marquee<Content> : View where Content : View {
             .onChange(of: direction) { [] _ in
                 resetAnimation(duration: duration, autoreverses: autoreverses, proxy: proxy)
             }
+            .onChange(of: proxy.size) { [] _ in
+                resetAnimation(duration: duration, autoreverses: autoreverses, proxy: proxy)
+            }
         }.clipped()
     }
     
